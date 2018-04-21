@@ -7,11 +7,11 @@ const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
   entry: {
-    app: path.resolve(APP_PATH, 'app.jsx')
+    app: path.resolve(APP_PATH, 'app.jsx'),
   },
   output: {
     path: BUILD_PATH,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   // 开启 dev source map
   devtool: 'eval-source-map',
@@ -20,11 +20,11 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    progress: true
+    progress: true,
   },
 
   resolve: {
-    extensions: [' ', '.js', '.jsx']
+    extensions: [' ', '.js', '.jsx'],
   },
 
   module: {
@@ -34,16 +34,17 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['eslint-loader'],
         include: APP_PATH,
-        exclude: path.resolve(ROOT_PATH, 'node_modules')
-      }, {
+        exclude: path.resolve(ROOT_PATH, 'node_modules'),
+      },
+      {
         // 配置 loader，将 Babel 添加进去
         test: /\.jsx?$/,
         loaders: ['babel-loader'],
         include: APP_PATH,
-        exclude: path.resolve(ROOT_PATH, 'node_modules')
-      }
-    ]
+        exclude: path.resolve(ROOT_PATH, 'node_modules'),
+      },
+    ],
   },
   // 配置 plugin
-  plugins: [new HtmlwebpackPlugin({ title: 'first react app' })]
+  plugins: [new HtmlwebpackPlugin({ title: 'first react app' })],
 };
