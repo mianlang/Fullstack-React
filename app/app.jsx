@@ -1,14 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hot } from 'react-hot-loader';
+import { B } from './b';
+import Cany from './c';
 
-function App() {
-  return (
+const App = () => (
+  <div>
     <div className="container">
-      <h1>Hello React</h1>
+      <h1>ello React</h1>
+      <div>233</div>
     </div>
-  );
-}
+    <h1>
+      <B />
+    </h1>
+    <h1>
+      <Cany />
+    </h1>
+  </div>
+);
 
-const app = document.createElement('div');
-document.body.appendChild(app);
-ReactDOM.render(<App />, document.body);
+export default hot(module)(App);

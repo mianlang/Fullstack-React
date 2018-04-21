@@ -7,14 +7,17 @@ const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
   entry: {
-    app: path.resolve(APP_PATH, 'app.jsx'),
+    main: path.resolve(ROOT_PATH, 'main.jsx'),
   },
   output: {
     path: BUILD_PATH,
-    filename: 'bundle.js',
+    filename: 'index.js',
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
   },
   // 开启 dev source map
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   // 开启 webpack dev server
   devServer: {
     historyApiFallback: true,
@@ -22,29 +25,21 @@ module.exports = {
     inline: true,
     progress: true,
   },
-
-  resolve: {
-    extensions: [' ', '.js', '.jsx'],
-  },
-
   module: {
     rules: [
       {
-        // 配置 preloaders，将 eslint 添加进入
         test: /\.jsx?$/,
-        loaders: ['eslint-loader'],
-        include: APP_PATH,
+        loaders: ['eslint-loader', 'babel-loader'],
+        include: ROOT_PATH,
         exclude: path.resolve(ROOT_PATH, 'node_modules'),
       },
       {
-        // 配置 loader，将 Babel 添加进去
-        test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        test: /\.css$/,
         include: APP_PATH,
-        exclude: path.resolve(ROOT_PATH, 'node_modules'),
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   // 配置 plugin
-  plugins: [new HtmlwebpackPlugin({ title: 'first react app' })],
+  plugins: [new HtmlwebpackPlugin({ title: 'MY react app' })],
 };

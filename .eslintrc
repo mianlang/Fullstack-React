@@ -2,5 +2,22 @@
   "extends": "airbnb",
   "env": {
     "browser": true
+  },
+  "rules": {
+    "comma-dangle": "warn",
+    "eol-last": "warn",
+    "global-require": "warn",
+    "no-extra-semi": "warn",
+    "no-multi-assign": "warn",
+    "no-underscore-dangle": "warn",
+    "no-unused-expressions": "warn",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "warn",
+    "no-var": "warn",
+    "prefer-destructuring": "warn",
+    "quotes": "warn",
+    "strict": "warn",
+    "vars-on-top": "warn",
+    "wrap-iife": "warn"
   }
 }
