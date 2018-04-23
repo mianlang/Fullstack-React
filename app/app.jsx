@@ -2,6 +2,12 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import B from './b';
 import Cany from './c';
+import Profile from './profile';
+
+const profileProps = {
+  name: 'Viking',
+  age: 20,
+};
 
 const App = () => (
   <div>
@@ -15,6 +21,7 @@ const App = () => (
     <h1>
       <Cany name="dmj123" />
     </h1>
+    <Profile {...profileProps} />
   </div>
 );
 

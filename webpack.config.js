@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 // 一些常用路径
 const ROOT_PATH = path.resolve(__dirname);
-const APP_PATH = path.resolve(ROOT_PATH, 'app');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
@@ -13,6 +12,13 @@ module.exports = {
     path: BUILD_PATH,
     filename: 'index.js',
   },
+  // 配置 plugin
+  plugins: [
+    new HtmlwebpackPlugin({
+      title: 'MY react app',
+      template: 'index.html',
+    }),
+  ],
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
@@ -34,12 +40,10 @@ module.exports = {
         exclude: path.resolve(ROOT_PATH, 'node_modules'),
       },
       {
-        test: /\.css$/,
-        include: APP_PATH,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/,
+        include: ROOT_PATH,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-  // 配置 plugin
-  plugins: [new HtmlwebpackPlugin({ title: 'MY react app' })],
 };
