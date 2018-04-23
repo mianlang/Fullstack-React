@@ -29,7 +29,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['eslint-loader', 'babel-loader'],
+        loaders: ['babel-loader', 'eslint-loader'],
         include: ROOT_PATH,
         exclude: path.resolve(ROOT_PATH, 'node_modules'),
       },

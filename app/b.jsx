@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const B = () => <div>22B</div>;
+const B = () => <div>B</div>;
+
+export default B;

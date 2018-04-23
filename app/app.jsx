@@ -1,6 +1,6 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { B } from './b';
+import B from './b';
 import Cany from './c';
 
 const App = () => (
@@ -13,7 +13,7 @@ const App = () => (
       <B />
     </h1>
     <h1>
-      <Cany />
+      <Cany name="dmj123" />
     </h1>
   </div>
 );
